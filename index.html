@@ -1,165 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> GUJRATI TRADER - Learning Community</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Of Nifty (Dr. Vikas Laddha) - Premium Stock Market Education</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#FACE63',
+                            500: '#E5A93C',
+                            600: '#C7881C',
+                        },
+                        emerald: {
+                            400: '#34D399',
+                            500: '#10B981',
+                            600: '#059669',
+                            900: '#064E3B',
+                        },
+                        dark: {
+                            bg: '#04070D',
+                            card: '#0B111E',
+                            border: 'rgba(250, 206, 99, 0.15)',
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2.5s ease-in-out infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(16, 185, 129, 0.4), 0 0 40px rgba(250, 206, 99, 0.2)' },
+                            '50%': { boxShadow: '0 0 35px rgba(16, 185, 129, 0.7), 0 0 60px rgba(250, 206, 99, 0.4)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #04070D;
+            color: #F3F4F6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
 
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+        /* Subtle Dark Grid Pattern */
+        .bg-grid-pattern {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
 
-  .card {
-    width: 85%;
-    max-width: 340px; 
-    background: #010a0f;
-    border: 1.5px solid #00d2ff;
-    border-radius: 35px;
-    padding: 20px 15px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
-  }
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF5D6 0%, #FACE63 50%, #E5A93C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-  .profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 3px solid #00d2ff;
-    object-fit: cover;
-    margin-top: -5px;
-    box-shadow: 0 0 15px #00d2ff;
-  }
+        /* Emerald Glow Border Card */
+        .luxury-card {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(7, 12, 22, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(250, 206, 99, 0.15);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
 
-  h1 {
-    color: #fff;
-    font-size: 20px;
-    margin: 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+        .luxury-card:hover {
+            border-color: rgba(52, 211, 153, 0.35);
+        }
 
-  .features {
-    text-align: left;
-    margin: 0 auto;
-    width: 90%;
-  }
-
-  .feature-item {
-    color: #ccc;
-    font-size: 13px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-  }
-
-  .feature-item:last-child { border-bottom: none; }
-
-  .icon { margin-right: 12px; font-size: 16px; }
-
-  .join-text {
-    color: #eee;
-    font-size: 12px;
-    margin: 20px 0 12px;
-    font-weight: 300;
-  }
-
-  .telegram-btn {
-    display: block;
-    background: linear-gradient(90deg, #00d2ff 0%, #9247ff 100%);
-    color: white;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
-  }
-
-  .hindi-quote {
-    color: #bbb;
-    font-size: 13px;
-    margin-bottom: 20px;
-    line-height: 1.4;
-  }
-
-  .footer-box {
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    border-radius: 12px;
-    padding: 8px;
-    font-size: 11px;
-    color: #888;
-  }
-
-  /* Link styling for Agency */
-  .footer-box a { 
-    color: #00d2ff; 
-    font-weight: bold; 
-    text-decoration: none;
-  }
-
-  .disclaimer {
-    font-size: 9px;
-    color: #444;
-    margin-top: 12px;
-  }
-</style>
+        /* Continuous Ticker */
+        @keyframes scrollTicker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: scrollTicker 30s linear infinite;
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between bg-grid-pattern selection:bg-gold-500 selection:text-black">
 
-<div class="card">
-  <img src="https://i.ibb.co/GQYGXHF4/In-Shot-20260927-223648191.jpg" alt=" GUJRATI TRADER" class="profile-img">
+    <!-- Ambient Glowing Orbs -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-emerald-500/10 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+    <div class="fixed top-1/3 right-0 w-[400px] h-[400px] bg-gold-500/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
 
-  <h1> GUJRATI TRADER</h1>
+    <!-- Live Market Ticker Bar -->
+    <div class="bg-black/80 border-b border-gold-500/20 py-2.5 text-xs text-gray-300 overflow-hidden sticky top-0 z-50 backdrop-blur-md">
+        <div class="w-full overflow-hidden">
+            <div class="animate-ticker font-mono">
+                <span class="px-6 flex items-center gap-2"><strong class="text-white">NIFTY 50:</strong> 24,380.50 <span class="text-emerald-400 font-bold">+120.40 (+0.50%) 📈</span></span>
+                <span class="px-6 flex items-center gap-2"><strong class="text-white">BANK NIFTY:</strong> 52,150.20 <span class="text-emerald-400 font-bold">+310.80 (+0.60%) 🚀</span></span>
+                <span class="px-6 flex items-center gap-2"><strong class="text-white">SENSEX:</strong> 80,120.10 <span class="text-emerald-400 font-bold">+450.15 (+0.56%) 🔥</span></span>
+                <span class="px-6 flex items-center gap-2"><strong class="text-white">LEARNING COMMUNITY:</strong> 50,000+ Traders <span class="text-gold-400 font-bold">LIVE 🟢</span></span>
+                <!-- Duplicate for loop -->
+                <span class="px-6 flex items-center gap-2"><strong class="text-white">NIFTY 50:</strong> 24,380.50 <span class="text-emerald-400 font-bold">+120.40 (+0.50%) 📈</span></span>
+                <span class="px-6 flex items-center gap-2"><strong class="text-white">BANK NIFTY:</strong> 52,150.20 <span class="text-emerald-400 font-bold">+310.80 (+0.60%) 🚀</span></span>
+                <span class="px-6 flex items-center gap-2"><strong class="text-white">SENSEX:</strong> 80,120.10 <span class="text-emerald-400 font-bold">+450.15 (+0.56%) 🔥</span></span>
+                <span class="px-6 flex items-center gap-2"><strong class="text-white">LEARNING COMMUNITY:</strong> 50,000+ Traders <span class="text-gold-400 font-bold">LIVE 🟢</span></span>
+            </div>
+        </div>
+    </div>
 
-  <div class="features">
-    <div class="feature-item"><span class="icon"></span> Learning & Educational Sessions</div>
-    <div class="feature-item"><span class="icon"></span> Market Concepts & Awareness</div>
-    <div class="feature-item"><span class="icon"></span> Chart Reading Concepts</div>
-    <div class="feature-item"><span class="icon"></span> Educational Case Discussions</div>
-  </div>
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 sm:py-12 flex-grow">
 
-  <p class="join-text">Join our learning community and grow your knowledge</p>
+        <!-- Top Header Identity -->
+        <div class="flex flex-col items-center text-center space-y-6">
+            
+            <!-- Verified Header Pill -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 text-xs font-semibold tracking-wide">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>OFFICIAL EDUCATIONAL CHANNEL</span>
+            </div>
 
-  <a href="https://t.me/+mc6hSYTJFoU0MmRl" class="telegram-btn">JOIN TELEGRAM</a>
+            <!-- Profile Avatar with Luxury Gold Ring -->
+            <div class="relative group">
+                <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full p-1.5 bg-gradient-to-tr from-gold-500 via-emerald-400 to-amber-300 shadow-2xl animate-float">
+                    <img src="https://iili.io/nr0Ln5J.jpg" alt="King Of Nifty (Dr. Vikas Laddha)" class="w-full h-full object-cover rounded-full border-2 border-slate-950" onerror="this.src='https://placehold.co/160x160/059669/ffffff?text=KON'">
+                </div>
+                <!-- Verified Checkmark Badge -->
+                <div class="absolute bottom-1 right-1 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-xl border-2 border-slate-950" title="Verified Creator">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
 
-  <p class="hindi-quote">     ,     </p>
+            <!-- Channel Branding -->
+            <div class="space-y-2">
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
+                    King Of Nifty
+                </h1>
+                <p class="text-lg sm:text-xl font-bold text-gold-gradient">
+                    (Dr. Vikas Laddha)
+                </p>
+                <p class="text-xs sm:text-sm text-gray-400 max-w-lg mx-auto font-medium leading-relaxed">
+                    India's trusted stock market educator. Get actionable technical analysis, Nifty index insights & professional chart setup breakdowns.
+                </p>
+            </div>
 
-  <div class="footer-box">
-    This Channel Advertise By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank">AD BUILD AGENCY</a>
-  </div>
+            <!-- Floating Stats Badges -->
+            <div class="grid grid-cols-3 gap-3 w-full max-w-md pt-2">
+                <div class="luxury-card p-3 rounded-2xl text-center">
+                    <div class="text-xl font-extrabold text-emerald-400">50K+</div>
+                    <div class="text-[11px] text-gray-400 font-medium">Active Learners</div>
+                </div>
+                <div class="luxury-card p-3 rounded-2xl text-center">
+                    <div class="text-xl font-extrabold text-gold-400">100%</div>
+                    <div class="text-[11px] text-gray-400 font-medium">Free Access</div>
+                </div>
+                <div class="luxury-card p-3 rounded-2xl text-center">
+                    <div class="text-xl font-extrabold text-blue-400">Daily</div>
+                    <div class="text-[11px] text-gray-400 font-medium">Chart Setups</div>
+                </div>
+            </div>
 
-  <div class="disclaimer">
-    Terms | Privacy | Disclaimer <br>
-    This site is not part of Facebook� or endorsed by Facebook�.
-  </div>
-</div>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2552096918611818');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2552096918611818&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+            <!-- SINGLE PRIMARY HIGH-CONVERTING TELEGRAM BUTTON -->
+            <div class="w-full max-w-md pt-4 pb-2">
+                <a href="https://t.me/+t2lkxxn1svI4YmY1" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-center gap-3 w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 via-emerald-400 to-teal-300 text-slate-950 font-black text-base sm:text-lg tracking-wide uppercase shadow-2xl animate-pulse-glow transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]">
+                    <i class="fa-brands fa-telegram text-3xl text-slate-950 group-hover:rotate-12 transition-transform"></i>
+                    <span>JOIN FREE TELEGRAM CHANNEL</span>
+                    <i class="fa-solid fa-arrow-right text-base group-hover:translate-x-1.5 transition-transform"></i>
+                </a>
+                <div class="flex items-center justify-center gap-2 text-[11px] text-gray-400 mt-3 font-medium">
+                    <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                    <span>No Subscription Fee • Instant Telegram Access</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Key Educational Highlights Section -->
+        <div class="mt-12 sm:mt-16 space-y-6">
+            <div class="text-center">
+                <h2 class="text-xl sm:text-2xl font-bold text-white">What You Learn Inside The Channel</h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">Structured price action knowledge designed for Indian market traders</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="luxury-card p-5 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0 text-xl">
+                        <i class="fa-solid fa-chart-candlestick"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">Daily Nifty & Bank Nifty Analysis</h3>
+                        <p class="text-xs text-gray-400 mt-1 leading-relaxed">Clear index support-resistance key levels and pre-market technical setup breakdown.</p>
+                    </div>
+                </div>
+
+                <div class="luxury-card p-5 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0 text-xl">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">High-Probability Chart Setups</h3>
+                        <p class="text-xs text-gray-400 mt-1 leading-relaxed">Learn how to spot breakouts, trend reversals, and institutional volume moves.</p>
+                    </div>
+                </div>
+
+                <div class="luxury-card p-5 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0 text-xl">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">Risk Management Rules</h3>
+                        <p class="text-xs text-gray-400 mt-1 leading-relaxed">Master 1:2+ risk-reward principles, strict stop-loss discipline, and position sizing.</p>
+                    </div>
+                </div>
+
+                <div class="luxury-card p-5 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0 text-xl">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">Trading Psychology</h3>
+                        <p class="text-xs text-gray-400 mt-1 leading-relaxed">Overcome FOMO, overtrading, and fear through structured rule-based execution systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meta Ads Compliance Guardrail Box -->
+        <div class="mt-10 p-5 rounded-2xl luxury-card border-amber-500/20 bg-amber-950/10 space-y-2">
+            <div class="flex items-center gap-2 text-gold-400 text-xs font-bold uppercase tracking-wide">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>SEBI Educational Compliance Disclaimer</span>
+            </div>
+            <p class="text-[11px] text-gray-400 leading-relaxed">
+                Educational Purposes Only. We are not SEBI registered advisors. Trading in stock market involves financial risk. Content shared on this platform and associated Telegram channel is purely for financial literacy and market analysis education. We do not provide profit guarantees, paid tips, or advisory management services.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Footer & Meta Compliance Links -->
+    <footer class="bg-black/90 border-t border-white/10 py-8 px-4 text-center text-xs text-gray-400 mt-12">
+        <div class="max-w-4xl mx-auto space-y-4">
+            
+            <!-- Modal Policy Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-semibold text-gray-300">
+                <button onclick="openModal('privacyModal')" class="hover:text-gold-400 transition-colors">Privacy Policy</button>
+                <span>•</span>
+                <button onclick="openModal('termsModal')" class="hover:text-gold-400 transition-colors">Terms of Service</button>
+                <span>•</span>
+                <button onclick="openModal('disclaimerModal')" class="hover:text-gold-400 transition-colors">Disclaimer</button>
+                <span>•</span>
+                <button onclick="openModal('contactModal')" class="hover:text-gold-400 transition-colors">Contact Us</button>
+            </div>
+
+            <!-- Promoted Credit -->
+            <div class="pt-2 pb-1">
+                <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-emerald-400 hover:border-emerald-500/30 transition-all text-[11px] font-medium">
+                    <i class="fa-solid fa-bullhorn text-gold-400 text-[10px]"></i>
+                    <span>Promoted By <strong class="text-white hover:text-emerald-400">AD BUILD AGENCY</strong></span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                </a>
+            </div>
+
+            <div class="text-[11px] text-gray-400 space-y-1.5 max-w-xl mx-auto">
+                <p>© 2026 King Of Nifty (Dr. Vikas Laddha). All Rights Reserved.</p>
+                <p class="text-[10px] text-gray-400">
+                    This site is not affiliated with or endorsed by Meta Platforms, Inc. (Facebook/Instagram).
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Compliance Modals -->
+    <div id="privacyModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="luxury-card bg-slate-900 max-w-md w-full p-6 rounded-2xl space-y-4 border border-gold-500/30 text-left">
+            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                <h3 class="font-bold text-white text-base">Privacy Policy</h3>
+                <button onclick="closeModal('privacyModal')" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs text-gray-300 space-y-3 leading-relaxed">
+                <p>We respect your privacy. This page does not collect, store, or sell personal identifiable financial information.</p>
+                <p>Clicking on the Telegram link safely redirects you to Telegram's secure application environment.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="termsModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="luxury-card bg-slate-900 max-w-md w-full p-6 rounded-2xl space-y-4 border border-gold-500/30 text-left">
+            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                <h3 class="font-bold text-white text-base">Terms of Service</h3>
+                <button onclick="closeModal('termsModal')" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs text-gray-300 space-y-3 leading-relaxed">
+                <p>By browsing this landing page, you acknowledge that all materials shared within the linked Telegram community are intended solely for educational analysis.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="disclaimerModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="luxury-card bg-slate-900 max-w-md w-full p-6 rounded-2xl space-y-4 border border-gold-500/30 text-left">
+            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                <h3 class="font-bold text-white text-base">SEBI Compliance Disclaimer</h3>
+                <button onclick="closeModal('disclaimerModal')" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs text-gray-300 space-y-3 leading-relaxed">
+                <p>Educational Purposes Only. We are not SEBI registered advisors. Trading in stock market involves financial risk.</p>
+                <p>Always perform your own due diligence or consult a certified financial advisor before placing market trades.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="contactModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="luxury-card bg-slate-900 max-w-md w-full p-6 rounded-2xl space-y-4 border border-gold-500/30 text-left">
+            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                <h3 class="font-bold text-white text-base">Contact Us</h3>
+                <button onclick="closeModal('contactModal')" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="text-xs text-gray-300 space-y-3 leading-relaxed">
+                <p>For inquiries, please contact our community admin directly on the official Telegram channel: <strong>King Of Nifty (Dr. Vikas Laddha)</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Helper Script -->
+    <script>
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+    </script>
 </body>
+  
 </html>
